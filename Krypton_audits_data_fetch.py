@@ -4,17 +4,25 @@ from datetime import datetime,timedelta
 import os
 from math import ceil
 
+
+############### Inputs #################
+
+config_id=''
+trigger_date=''
+end_date=''
+
 # Connection String
 
 conn=prestodb.dbapi.connect(
-    host='presto.oyorooms.io',
-    port=8889,
-    user='abhishek.mamgain@oyorooms.com',
+    host='',
+    port=,
+    user='',
     catalog='hive',
-    schema='ingestiondb',
+    schema='',
     http_scheme='http',
-    #auth=prestodb.auth.BasicAuthentication("principal id", "grR8@$UabqLjPyqH"),
+    
 )
+########################################
 
 #Function to run the query on prestodb
 def run_me(sql):
@@ -27,12 +35,6 @@ def run_me(sql):
     #conn.close()
 
     return(pd.DataFrame(rows, columns=colnames))
-
-# Inputs
-
-config_id='5caf268926c718cc7f96fe2d'
-trigger_date='2019-05-10'
-end_date='2019-05-30'
 
 day= int(trigger_date[8:])
 start_date= pd.to_datetime(trigger_date[:10])
